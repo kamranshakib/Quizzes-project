@@ -1,0 +1,61 @@
+<%-include('header') %>
+    <main class="dashboard-container-admin">
+        <h2>Manage Questions</h2>
+
+        <!-- List of Questions -->
+        
+
+
+        <!-- Add New Question Form -->
+        <form action="/addQuestion" method="post" id="add-question-form" class="add-question-form">
+            <h3>Add New Question</h3>
+            <input type="text" name="question" placeholder="Enter question" required>
+            <input type="text" name="option1" placeholder="Option 1" required>
+            <input type="text" name="option2" placeholder="Option 2" required>
+            <input type="text" name="option3" placeholder="Option 3" required>
+            <input type="text" name="option4" placeholder="Option 4" required>
+            <select name="correctAnswer" required>
+                <option value="" disabled selected>Select Correct Answer</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+                <option value="option4">Option 4</option>
+            </select>
+            <button type="submit" class="btn-add">Add Question</button>
+        </form>
+         <br><br>
+       
+    </main>
+    <div class="container-table">
+        <table class="questions-table">
+            <thead>
+    
+                <tr>
+                    <th>ID</th>
+                    <th>Question</th>
+                    <th>Options</th>
+                    <th>Correct Answer</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i<arrayDB.length; i++){ %>
+                <tr>
+                    <td ><%= arrayDB[i].id %></td>
+                    <td style="padding: 0;"><p><%= arrayDB[i].question %></p></td>
+                    <td style="padding: 5px;" ><%= arrayDB[i].option1 %> <p><%= arrayDB[i].option2 %></p> <%= arrayDB[i].option3 %><p><%= arrayDB[i].option4 %></p></td>
+                    <td ><p><%= arrayDB[i].correct_answer %></p></td>
+                    <td >
+                     <a href="/editQuesion/<%=arrayDB[i].id %>"> <button class="btn-edit">Edit</button></a>
+                        <form action="/deleteQuestiom/<%=arrayDB[i].id%> " method="post"> <button class="btn-delete"  name="id" >Delete</button>  </form>
+                    </td>
+                </tr>
+                <% } %>
+              
+            </tbody>
+        </table>
+
+    </div>
+    
+</body>
+</html>

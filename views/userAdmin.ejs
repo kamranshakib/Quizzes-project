@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Import Form</title>
+  <style>
+      @font-face {
+       font-family:HankenGrotesk ;
+        src:url("/assets/fonts/HankenGrotesk-VariableFont_wght.ttf"),
+        url("/assets/fonts/static/HankenGrotesk-Bold.ttf") format("ttf"),
+        url("/assets/fonts/static/HankenGrotesk-Medium.ttf") format("ttf");
+        
+    font-weight: normal;
+      }
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+    
+  
+      font-family: 'HankenGrotesk';
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* background-color: #fdb8f400; */
+      overflow: hidden;
+    }
+    html{
+      /* background: -webkit-linear-gradient(45deg, rgb(220, 220, 220) 50%, rgba(55, 176, 87, 0.483) 80%); */
+    }
+  
+    .form-container {
+      font-family: 'HankenGrotesk';
+      width: 350px;
+      padding: 30px;
+      border-radius: 5px;
+      backdrop-filter: blur(10px);
+    }
+    .form-container .form-group input{
+      background-color: white;
+      width: 100%;
+      height: 30px;
+      border: none;
+      outline: none ;
+      margin-top: 20px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.214);
+      font-size: 16px;
+    }
+    ::placeholder{
+      color: #00000037;
+    }
+    .form-group #submit{
+      width: 100%;
+      height: 35px;
+      margin: 20px auto;
+      border: none;
+      border-radius: 30px;
+      background-color: #53c23d;
+      color: white;
+    }
+    #loginWord{
+      text-align: center;
+      font-size: 50px;
+      color: rgba(0, 0, 0, 0.438);
+      font-family: 'HankenGrotesk';
+     
+    }
+    #loginWord span{
+      color: rgba(0, 0, 0, 0.725);
+    }
+    .image-adminlogin{
+      background-color: rgb(252, 252, 252);
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 5px auto;
+      border: 5px solid rgb(252, 252, 252);
+      border-top: 5px solid #53c23d;
+      border-bottom: 5px solid #53c23d;
+      /* border-left: 5px solid #53c23d; */
+      animation-name: border;
+     animation-duration: 20s;
+      animation-iteration-count: infinite;
+     animation-direction: initial;
+     overflow: hidden;
+    
+    }
+    @keyframes border {
+      from{transform: rotate(-360deg)}
+      to{transform: rotate(360deg);}
+      
+    }
+      .image_logo img{
+        width: 140px;
+      }
+      .image_logo{
+        width: 140px;
+       
+        transform: translateY(-150px);
+        display: inline-block;
+        margin: 0 75px;
+      }
+
+    @media (max-width: 500px) {
+      .form-container{
+        border: none;
+        box-shadow: none;
+      }
+      #submit{
+        width: 70px;
+        background-color: #53c23d;
+      }
+      .form-container #loginWord{
+        display: none;
+      }
+     
+      
+    }
+
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <div class="image-adminlogin">.
+    </div>
+    <div class="image_logo"><img src="/images/cropped-kabul-omid-kurs-2022logo.png" alt=""></div>
+    
+
+    <form action="/getToAdminPanel" method="POST" >
+
+      <div class="form-group">
+        <input type="text" placeholder="Username" id="headerClient" name="EmailAdmin" autocomplete="of" required>
+      </div>
+
+      <div class="form-group">
+      <input style="background-color: white;" type="password" name="passwordAdmin" id="" placeholder=" Password" required autocomplete="off" >
+      </div>
+      
+      <div class="form-group">
+        <button id="submit" type="submit">Login</button>
+      </div>
+    </form>
+
+  </div>
+  
+
+
+  <%-include('footer.ejs') %>
+</body>
+</html>

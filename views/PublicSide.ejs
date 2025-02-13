@@ -1,0 +1,30 @@
+<%-include('header') %>
+    <main class="dashboard-container-public">
+        <h2>Questions</h2>
+
+        <!-- List of Questions -->
+         
+       <form action="/CorrectAnswer" method="POST"> 
+        
+          <% for(var i = 0; i<arrayDB.length; i++){ %>
+           
+             <div class="question-container">
+             <p class="question"> <%= arrayDB[i].question %></p>
+             <div  class="options options-pblicSide">
+               <input type="radio" name="ANSWER<%=i%>"  value="option1" id="R1<%=i%>">  <label for="R1<%=i%>">  A) <%= arrayDB[i].option1 %> </label>
+               <br><br>
+               <input type="radio" name="ANSWER<%=i%>" value="option2" id="R2<%=i%>"> <label for="R2<%=i%>"> B) <%= arrayDB[i].option2 %></label>
+               <br><br>
+               <input type="radio" name="ANSWER<%=i%>" value="option3" id="R3<%=i%>" > <label for="R3<%=i%>"> C) <%= arrayDB[i].option3 %></label>
+               <br><br>
+                <input type="radio" name="ANSWER<%=i%>"  value="option4" id="optionR4<%=i%>"> <label for="optionR4<%=i%>" >D) <%= arrayDB[i].option4 %></label>
+            </div>
+          </div>
+            <% }%>
+        <button type="submit" class="btn-edit">OK</button>
+       </form>
+    
+    </main>
+   
+</body>
+</html>

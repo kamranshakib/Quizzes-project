@@ -1,0 +1,11 @@
+[
+  {
+    "idCounter": 1,
+    "correctAnswer": "option1",
+    "Question": "what is your name ?",
+    "Option1": "ali",
+    "Option2": "kamran",
+    "Option3": "saeid",
+    "Option4": "karim"
+  }
+]

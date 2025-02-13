@@ -1,0 +1,170 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+}
+
+.header>span {
+    color: white;
+    display: inline-block;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 0.5em;
+    margin: 0.25em 0 0.25em 1em;
+    font-size: 3em;
+}
+
+.bg {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: url("https://res.cloudinary.com/juanafanador07/codepen/only-css-hamburguer-menu/background.jpg");
+    background-position: center;
+}
+
+#menu-button-check {
+    display: none;
+}
+
+label[for=menu-button-check]:nth-of-type(1) {
+    display: none;
+}
+
+.menu a {
+    font-size: inherit;
+    color: inherit;
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 1vw;
+    }
+
+    .header {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 10%;
+    }
+
+    .menu {
+        display: inline-block;
+        width: 80%;
+    }
+
+    .menu ul {
+        width: 100%;
+        height: 100%;
+        text-align: right;
+        color: white;
+    }
+
+    .menu li {
+        display: inline-block;
+        font-size: 1.5em;
+        margin: 0 2em 0 0;
+    }
+}
+
+@media (min-width: 768px) and (max-width:1023px) {
+    html {
+        font-size: 1.5vw;
+    }
+
+    .header {
+        width: 100%;
+        padding: 0;
+    }
+
+    .menu {
+        width: 95%;
+    }
+}
+
+@media (max-width: 767px) {
+
+    html {
+        font-size: 2.5vw;
+    }
+
+    .header>span {
+        width: 100%;
+        text-align: center;
+    }
+
+    label[for=menu-button-check]:nth-of-type(1) {
+        position: absolute;
+        top: 0.25em;
+        color: white;
+        right: 0.5em;
+        z-index: 1000;
+        font-size: 3em;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    label[for=menu-button-check]:nth-of-type(1):hover {
+        cursor: pointer;
+    }
+
+    #menu-button-check:checked~.menu {
+        animation: show-menu linear 0.1s;
+        right: 0;
+    }
+
+    #menu-button-check:checked~label[for=menu-button-check]:nth-of-type(1) {
+        color: white;
+    }
+
+    .menu {
+        display: flex;
+        animation: hide-menu linear 0.1s;
+        width: 100%;
+        height: 100%;
+        right: -100%;
+        top: 0;
+        position: fixed;
+        background: rgba(0, 0, 0, 0.95);
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+    }
+
+    .menu li {
+        font-size: 1.5em;
+        color: white;
+        margin: 1em 0;
+        list-style: none;
+    }
+
+    @keyframes show-menu {
+        from {
+            right: -100%;
+            opacity: 0;
+        }
+
+        to {
+            right: 0;
+            opacity: 1;
+        }
+    }
+
+    @keyframes hide-menu {
+        from {
+            right: 0;
+            opacity: 1;
+        }
+
+        to {
+            right: -100%;
+            opacity: 0;
+        }
+    }
+}
