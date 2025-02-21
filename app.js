@@ -27,7 +27,7 @@ cont.query(sql, (err, result) => {
   if (err) throw err;
 });
 
-            // write variable of admin login
+            
 
 
             // page one or main page
