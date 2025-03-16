@@ -1,13 +1,16 @@
 const express = require("express");
+const app = express();
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
-const app = express();
+const ejs = require("ejs");
+require('dotenv').config();
+
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-const ejs = require("ejs");
 app.set("view engine", "ejs");
 app.use(express.static('public'))
-require('dotenv').config();
 
 const adminGmail = process.env.EMAIL;
 const adminPassword = process.env.PASSWORD;
@@ -157,6 +160,10 @@ app.post("/CorrectAnswer", (req, res) => {
     res.render("showAnswer", { corrct, incorrct });
   });
 });
+
+
+
+// Run Port 
 
  const port = 3000;
 app.listen(port, () => {
